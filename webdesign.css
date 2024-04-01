@@ -1,0 +1,37 @@
+.background{
+    height: 100vh;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.back{
+    background-color: #000;
+}
+.question{
+    background-color: #33b5e5;
+    z-index: 3;
+    
+}
+
+input{
+    display: block;
+}
+
+.lastContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.navigation{
+    background-color: #33b5e5;
+    height: 2.7rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+}
+
+.Courses{
+    background-color: #33b5e5;
+}

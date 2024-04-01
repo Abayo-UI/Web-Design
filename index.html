@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <link rel="stylesheet" href="webdesign.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+        <script type="text/babel">
+
+       let questionNumber = -1;
+       let counter = 0;
+
+        const webDesignQuestions = [
+            {
+                question: " 2) What are the essential components of a web page?",
+                answer1:"  Java, C++, and Python.",
+                answer2:" HTML, CSS, and JavaScript",
+                answer3:" Photoshop, Illustrator, and InDesign."  
+            },
+            {
+                question: " 3) What is the difference between HTML, CSS, and JavaScript?",
+                answer1:"HTML is a programming language, CSS is a markup language, and JavaScript is a scripting language.",
+                answer2:"HTML is a markup language, CSS is a programming language, and JavaScript is a scripting language.",
+                answer3:"HTML is a scripting language, CSS is a programming language, and JavaScript is a markup language. "  
+            },
+            {
+                question: "4)What is responsive web design?",
+                answer1:"Responsive web design is a design technique that ensures websites load quickly.",
+                answer2:"Reponsive web design is a design technique that ensures websites adapt to different devices and screen sizes.",
+                answer3:"Responsive web design is a design technique that focuses on creating visually appealing websites."  
+            },
+            {
+                question: " 5)Name three common web design principles or best practices.",
+                answer1:"Innovation, complexity, and exclusivity.",
+                answer2:"Consistency, simplicity, and accessibility.",
+                answer3:"Flexibility, randomness, and obscurity."  
+            },
+            {
+                question: " 6)What is the purpose of user experience (UX) design?",
+                answer1:"To optimize websites for search engine rankings. ",
+                answer2:"To ensure websites are easy to use and provide a positive interaction for users ",
+                answer3:" To make websites visually appealing."  
+            },
+            {
+                question: "7) Which programming language is commonly used for web development?",
+                answer1:"Python",
+                answer2:"JavaScript",
+                answer3:"Java"  
+            },
+            {
+                question: "8) What is the role of typography in web design?",
+                answer1:"To create visually appealing layouts",
+                answer2:"To enhance readability and convey information effectively through text",
+                answer3:"To choose the right colors for a website"  
+            },
+            {
+                question: "9) What is the purpose of wireframing in the web design process?",
+                answer1:"To create a visual guide that represents the skeletal framework of a website",
+                answer2:"To test the functionality of a website.",
+                answer3:"To create the final design of a website."  
+            },
+            {
+               question:"10) What is the importance of website accessibility?",
+                answer1:"It ensures that websites are compatible with all web browsers.",
+                answer2:"It enables people with disabilities to access and navigate websites effectively.",
+                answer3:"It guarantees that websites have a visually pleasing design."
+            },
+            {
+               question:"11) What is the purpose of A/B testing in web design?",
+               answer1:"To track website traffic and user behavior.",
+               answer2:"To optimize website loading speed.",
+               answer3:"To compare different versions of a webpage to determine which one performs better."
+
+            },
+            {
+                question:"12) What are the benefits of using CSS frameworks in web design?",
+                answer1:"They provide additional security features.",
+                answer2:"They allow for faster website development.",
+                answer3:"They improve search engine optimization (SEO)."
+            },
+            {
+                question:"13)What is the difference between a static website and a dynamic website?",
+                answer1:"A static website has interactive features, while a dynamic website does not.",
+                answer2:"A static website displays the same content to all users, while a dynamic website can generate content based on user interactions.",
+                answer3:"A static website is built with HTML, while a dynamic website uses JavaScript."
+            },
+            {
+               question:"14)What is the purpose of a content management system (CMS) in web design?",
+               answer1:"To manage and organize website content easily",
+               answer2:"To optimize website performance and speed.",
+               answer3:"To enhance website security and prevent hacking"
+            },
+            {
+               question:"15)How can white space benefit web design?",
+               answer1:"It helps to reduce website loading time.",
+               answer2:"It enhances readability and visual clarity by providing breathing room between elements.",
+               answer3:"It improves website visibility on search engines."
+            }
+        ]
+          
+          class WebDesign  extends React.Component{
+           constructor(props){
+            super(props);
+            this.state = {
+                question: " 1) What is Web Design?",
+                answer1:"  The process of developing mobile applications.",
+                answer2:" The process of creating and designing websites.",
+                answer3:" The process of creating and designing video games."
+            }
+            this.handleClick = this.handleClick.bind(this);
+            this.nextQuestion = this.nextQuestion.bind(this);
+            this.handleChange = this.handleChange.bind(this);
+            this.handleChangeCorrect = this.handleChangeCorrect.bind(this);
+           }
+
+           handleClick(){
+             this.setState(this.nextQuestion);
+           } 
+
+            nextQuestion(){ 
+            questionNumber += 1;
+                    
+            
+            if(questionNumber  < webDesignQuestions.length){
+                return webDesignQuestions[questionNumber];
+            }
+            else{
+                let result;
+                result = Math.floor(counter * 6.67);
+                return {
+                question: `Your overall score is ${result}%. If you managed to score above 66%  we recommend you to consider Web Design as Your career choice.`,
+                answer1:"",
+                answer2:"",
+                answer3:""
+            }
+            }
+          }
+
+           handleChange(){
+                alert("Incorrect! Choice b is the correct answer.Kindly Proceed to the next question");
+                this.handleClick();  
+            }
+
+            handleChangeCorrect(){
+            counter = counter + 1;
+             setTimeout(() => {
+             this.handleClick();
+             }, 2000); 
+            }
+
+           render(){
+            return(
+                <div className="background">
+
+                    <nav class="navbar  fixed-top navigation">
+  <div class="container-fluid">
+    <a class="navbar-brand">Web Design</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end " tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Courses</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body Courses">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Full Stack Development</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Game Development</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">App Development</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">S/W engineering</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Cyber security</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Data Science</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Web Design</a>
+          </li>
+        </ul>
+        <form class="d-flex mt-3" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+                    
+                     <div className="question col-lg-4 col-11 h-auto pb-4 pt-5 px-4 mt-5">
+                        <p className="text-white fs-5">{this.state.question}</p>
+
+        <form>
+ 
+        <div style={{ display: 'flex', alignItems: 'center' , display:"none"}}>
+             <input type="radio" name="questionOne" checked="true"/>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', lineHeight:"18px" }}>
+             <input onClick={this.handleChange} type="radio" className="me-2 mb-3" name="questionOne"/>
+             <p style={{display:'inline',fontWeight:"700",fontSize:"1.2rem" }}>{this.state.answer1}</p>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', lineHeight:"18px" }}>
+             <input  onClick={this.handleChangeCorrect}type="radio" className="me-2 mb-3" name="questionOne"/>
+             <p style={{display:'inline',fontWeight:"700",fontSize:"1.2rem" }}>{this.state.answer2}</p>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', lineHeight:"18px" }}>
+             <input onClick={this.handleChange} type="radio" className="me-2 mb-3" name="questionOne"/>
+             <p style={{display:'inline',fontWeight:"700",fontSize:"1.2rem" }}>{this.state.answer3}</p>
+        </div>
+        </form>
+        <div className="lastContainer">
+           <div className="rounded-5  pt-2 w-25 h-auto bg-light text-center fs-5" >{counter}/15</div>
+           <button  onClick={this.handleClick}className="w-50 pt-2 h-auto rounded-5 border border-none text-center"><p>NEXT</p></button> 
+           </div>
+        </div>
+        </div>
+            )
+           }
+          }
+          ReactDOM.render(<WebDesign/>, document.getElementById('root'))
+        </script>
+    </head>
+
+    <body class="back">
+        <div id="root">
+        </div>
+    </body>
+
+</html>
