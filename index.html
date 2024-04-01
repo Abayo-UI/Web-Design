@@ -134,6 +134,10 @@
             else{
                 let result;
                 result = Math.floor(counter * 6.67);
+                const elementToRemove = document.querySelector("#remove");
+                elementToRemove.style.display = 'none';
+                const buttonToRemove = document.querySelector("#nextButton");
+                buttonToRemove.style.display = 'none';
                 return {
                 question: `Your overall score is ${result}%. If you managed to score above 66%  we recommend you to consider Web Design as Your career choice.`,
                 answer1:"",
@@ -208,7 +212,7 @@
                      <div className="question col-lg-4 col-11 h-auto pb-4 pt-5 px-4 mt-5">
                         <p className="text-white fs-5">{this.state.question}</p>
 
-        <form>
+        <form id="remove">
  
         <div style={{ display: 'flex', alignItems: 'center' , display:"none"}}>
              <input type="radio" name="questionOne" checked="true"/>
@@ -228,7 +232,7 @@
         </form>
         <div className="lastContainer">
            <div className="rounded-5  pt-2 w-25 h-auto bg-light text-center fs-5" >{counter}/15</div>
-           <button  onClick={this.handleClick}className="w-50 pt-2 h-auto rounded-5 border border-none text-center"><p>NEXT</p></button> 
+           <button  id="nextButton"  onClick={this.handleClick}className="w-50 pt-2 h-auto rounded-5 border border-none text-center"><p>NEXT</p></button> 
            </div>
         </div>
         </div>
